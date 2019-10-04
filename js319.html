@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>listener</title>
+	<style type="text/css">
+		body  {
+			height: 500px;
+			border: 1px solid black	;
+		}
+		div {
+			height: 200px;
+			width: 200px;
+			background-color: yellow;
+			margin:5px;
+			display: inline-block;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			//activar un listener sobre todo el documento
+			document.getElementById('caja1').addEventListener('click', function () {saludar('hola')});
+			document.getElementById('caja2').addEventListener('dblclick', function () {saludar('hola')});
+			document.getElementById('caja3').addEventListener('mouseover', function () {saludar('hola')});
+		}		
+				
+		function saludar(texto) {
+			alert(texto);
+			// desactivar el evento
+			document.getElementById('caja1').removeEventListener('click', desactiva);
+			document.getElementById('caja2').removeEventListener('dblclick', desactiva);
+			document.getElementById('caja3').removeEventListener('mouseover', desactiva);
+		}
+
+		function desactiva() {alert('desactiva')}
+
+	</script>
+</head>
+<body>
+		<div id="caja1">Click</div>
+		<div id="caja2">Doble Click</div>
+		<div id="caja3">Mouse Over</div>
+
+</body>
+</html>
